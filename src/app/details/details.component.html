@@ -1,0 +1,115 @@
+
+<section class="my-4 row position-relative" >
+  <div class=" w-100 position-absolute headerImg opacity-25">
+    <img [src]="game.thumbnail" class="w-100 opacity-25" alt="">
+  </div>
+  
+  <div class="col-12 col-md-4 position-relative">
+    <div class="sidebar">
+      <img [src]="game.thumbnail" class="w-100 rounded" alt="" />
+      <div class="d-flex my-3 justify-content-between">
+        <button class="btn btn-secondary py-2 col-3">Free</button>
+        <a [href]="game.game_url" target="_blank" class="btn btn-primary ms-4 py-2 col-8">
+          Play Now<i class="fa-solid fa-arrow-right-to-bracket ps-2"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 col-md-7 text-white-50">
+    <section class="my-3">
+      <h3>{{ game.title }}</h3>
+      <ul class="text-start">
+        <li><i class="fa-solid fa-thumbs-up"></i> Massively Positive</li>
+        <li><i class="fa-solid fa-star"></i> 20 Member Ratings</li>
+        <li><i class="fa-regular fa-user"></i> 164 Members have this game in their library!</li>
+        <li><i class="fa-solid fa-message"></i>1 Review</li>
+      </ul>
+      <h3>About {{ game.title }}</h3>
+      <p>
+        {{ game.description }}
+      </p>
+      <hr />
+    </section>
+    <section class="my-3">
+      <h3>Additional Information</h3>
+      <div class="row">
+        <ul class="col-4">
+          <li class="text-muted">Title</li>
+          <li class="text-white">{{game.title}}</li>
+          <li class="text-muted">Relese Date</li>
+          <li class="text-white">{{game.release_date}}</li>
+        </ul>
+        <ul class="col-4">
+          <li class="text-muted">Developer</li>
+          <li class="text-white">{{game.developer}}</li>
+          <li class="text-muted">Genre</li>
+          <li class="text-white">{{game.genre}}</li>
+        </ul>
+        <ul class="col-4">
+          <li class="text-muted">Publisher</li>
+          <li class="text-white">{{game.publisher}}</li>
+          <li class="text-muted">Platform</li>
+          <li class="text-white">{{game.platform}}</li>
+        </ul>
+      </div>
+    </section>
+    <section class="my-3">
+      <h3>The {{ game.title }} Screenshots</h3>
+      <hr />
+      <div class="row">
+        <div class="col-4 px-2" *ngFor="let sc of game.screenshots">
+          <img [src]="sc.image" class="w-100" alt="" srcset="" />
+        </div>
+      </div>
+    </section>
+    <section class="my-3">
+      <h3>Minimum System Requirements (Browser)</h3>
+      <p>
+        <i class="fa-solid fa-caret-right"></i
+        >{{ game.minimum_system_requirements.os }}
+      </p>
+      <p>
+        <i class="fa-solid fa-caret-right"></i
+        >{{ game.minimum_system_requirements.processor }}
+      </p>
+      <p><i class="fa-solid fa-caret-right"></i>
+        {{ game.minimum_system_requirements.memory }}</p>
+      <p>
+        <i class="fa-solid fa-caret-right"></i
+        >{{ game.minimum_system_requirements.graphics }}
+      </p>
+      <p *ngIf="game.minimum_system_requirements.storage">
+        <i class="fa-solid fa-caret-right"></i
+        >{{ game.minimum_system_requirements.storage }}
+      </p>
+    </section>
+    <!-- <section>
+      <h1></h1>
+    </section> -->
+    <section class="my-3">
+      <div class="d-flex justify-content-between">
+        <h3>Games like The Third Age</h3>
+        <button class="btn btn-outline-secondary">See More</button>
+      </div>
+      <hr />
+      <div class="row">
+        <div class="col-4" *ngFor="let game of games | slice : 4 : 7">
+          <a class="card bigger sec-bg-color text-muted">
+            <img
+              [src]="game.thumbnail"
+              class="card-img-top w-100"
+              alt="..."
+            />
+            <div
+              class="card-body d-flex justify-content-between align-items-center"
+            >
+              <h6 class="card-title">{{game.title}}</h6>
+              <button class="btn btn-sm btn-primary">Free</button>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

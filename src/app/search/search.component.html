@@ -1,0 +1,39 @@
+<section class="my-5">
+    <h2 class="fs-1">
+        <i class="fa-solid px-1 fa-magnifying-glass"></i>
+        Find Games
+    </h2>
+    <hr class="text-muted"> 
+    <input type="search" placeholder="Search" class=" text-white form-control w-50 bg-dark" #sh (input)="search(sh.value)">
+        <hr class="text-muted"> 
+    <!-- <h6 *ngFor="let t of titles">{{t}}</h6> -->
+    <div class="h-500 d-flex align-items-center justify-content-center" *ngIf="games.length == 0">
+        <i class="fa-regular fa-snowflake fa-spin fs-1 fa-2xl"></i>
+   </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-12 p-2" *ngFor="let game of games">
+          <a class="card bigger sec-bg-color text-muted" [routerLink]="['/details', game.id]">
+            <img
+              [src]="game.thumbnail"
+              class="card-img-top w-100"
+              alt="..."
+            />
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title">{{game.title}}</h5>
+                <button class="btn btn-sm btn-primary">Free</button>
+              </div>
+              <p>{{game.short_description|slice:0:60}}...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="fa-regular fa-square-plus"></i></span>
+                <span>
+                  <span class="rounded p-1 bg-dark small-text">{{game.genre}}</span
+                  ><i class="fa-brands fa-windows px-3"></i
+                ></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+</section>

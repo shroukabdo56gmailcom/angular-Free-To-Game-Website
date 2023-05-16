@@ -1,0 +1,44 @@
+<div class="">
+  <div class="w-75 shadow d-flex m-auto my-5 login">
+    <div class="col-lg-5">
+      <img src="assets/register.jpg" class="w-100 h-100" alt="" />
+    </div>
+    <div class="col-lg-7">
+      <form action="" class="p-5 text-white row pass text-center" [formGroup]="Login" (ngSubmit)="submitLogin()">
+        <img src="assets/logo-footer.png" class="w-25 m-auto pb-2" alt="">
+        <h5 class="text-center text-muted">Log to My Account</h5>
+        <input
+          type="text"
+          class="form-control col-12 my-2 p-3"
+          placeholder="Email Address"
+          formControlName="email"
+
+        />
+        <p class="text-danger" *ngIf="Login.controls['email'].touched && Login.controls['email'].invalid"> Check your email </p>
+        <input
+          type="password"
+          class="form-control col-12 my-2 p-3"
+          placeholder="password"
+          formControlName="password"
+        />
+        <p class="text-danger" *ngIf="Login.controls['password'].touched && Login.controls['password'].invalid"> invalid password </p>
+
+
+        <button type="submit" class="col-12 p-3 border-0 my-3 rounded btnHov" [disabled]="Login.invalid">
+         Login
+        </button>
+        <p  class="text-danger" *ngIf="errorMsg">{{errorMsg}}</p>
+
+        <hr />
+        <a href="" class="d-block">forgot your password?</a>
+
+        <div
+          class="d-flex text-center small-text text-muted justify-content-center"
+        >
+          <p>Not a member?</p>
+          <a href="">Sign in ></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

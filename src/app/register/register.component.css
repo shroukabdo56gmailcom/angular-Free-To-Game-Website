@@ -1,0 +1,16 @@
+ .login{
+    background-color: #32383e;
+}
+
+form input{
+    background-color: #1c1e22 !important;
+    border: none;
+    color: rgb(126, 126, 126);
+}
+.btnHov{
+    color: white;
+    background-image:linear-gradient(to top, #34383c,#464c52);
+}
+.btnHov:hover{
+    background-image:linear-gradient(to top, #202221,#171718);
+}

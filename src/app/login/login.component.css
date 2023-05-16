@@ -1,0 +1,18 @@
+.login{
+    background-color: #32383e;
+}
+.small-text{
+    font-size: 11px;
+}
+form input{
+    background-color: #1c1e22 !important;
+    border: none;
+    color: white !important;
+}
+.btnHov{
+    color: white;
+    background-image:linear-gradient(to top, #34383c,#464c52);
+}
+.btnHov:hover{
+    background-image:linear-gradient(to top, #202221,#171718);
+}

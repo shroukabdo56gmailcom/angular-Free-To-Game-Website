@@ -1,0 +1,4 @@
+.bigger:hover{
+transform: scale(1.02);
+transition: all 15ms ;
+}

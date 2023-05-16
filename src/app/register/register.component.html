@@ -1,0 +1,76 @@
+<div class="">
+  <div class="w-75 shadow d-flex m-auto my-5 login text-white">
+    <div class="col-lg-5">
+      <img src="assets/register.jpg" class="w-100 h-100" alt="" />
+    </div>
+    <div class="col-lg-7">
+      <form action="" class="p-5 row pass" [formGroup]="registration" (ngSubmit)="submitForm()">
+        <h5 class="text-center text-muted">Create My Account</h5>
+        <div class="w-50 my-2 ps-0">
+          <input
+            type="text"
+            placeholder="First name"
+            class="w-100 p-3 form-control"
+            name="first_name"
+            formControlName="first_name"
+          />
+        </div>
+        <div class="w-50 my-2 pe-0">
+          <input
+            type="text"
+            placeholder="last name"
+            class="w-100 p-3 form-control"
+            name="last_name"
+            formControlName="last_name"
+          />
+        </div>
+      <p class="text-danger" *ngIf="registration.controls['first_name'].touched &&  registration.controls['first_name'].invalid" > firstName must be more than 2 Charcters</p>
+      <p class="text-danger" *ngIf="registration.controls['last_name'].touched &&  registration.controls['last_name'].invalid" > lastName must be more than 2 Charcters</p>
+        <input
+          type="Email"
+          class="form-control col-12 my-2 p-3"
+          placeholder="Email Address"
+          name="email"
+          formControlName="email"
+        />
+        <p class="text-danger" *ngIf="registration.controls['email'].touched &&  registration.controls['email'].invalid">Check your email format</p>
+        <div class="w-50 my-2 ps-0">
+            <input
+              type="password"
+              placeholder="password"
+              class="w-100 p-3 form-control"
+              name="password"
+              formControlName="password"
+            #password
+            />
+          </div>
+          <p class="text-danger" *ngIf="registration.controls['password'].touched &&  registration.controls['password'].invalid" >Password must have Characters & Numbers</p>
+
+          <div class="w-50 my-2 pe-0">
+            <input
+              type="password"
+              placeholder="password"
+              class="w-100 p-3 form-control"
+              name="confirmPass"
+              formControlName="password"
+              #confirmPassword
+            />
+          </div>
+          <p class="text-danger" *ngIf="registration.controls['password'].touched &&  confirmPassword.value !== password.value" >Please confirm your password</p>
+        <button type="submit" class="col-12 p-3 border-0  my-3 rounded btnHov" [disabled]="registration.invalid" >Create Account</button>
+        <p class="text-danger" *ngIf="isRegisterd"> this email is Already registered </p>
+        <p class="small-text text-muted">
+          This site is protected by reCAPTCHA and the Google Privacy Policy and
+          Terms of Service apply.
+        </p>
+        <hr />
+        <div
+          class="d-flex text-center small-text text-muted justify-content-center"
+        >
+          <p>Already a member?</p>
+          <a href="">Sign in ></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

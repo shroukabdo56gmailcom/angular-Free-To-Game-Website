@@ -1,0 +1,83 @@
+<!-- <h5 >
+    {{g.title}}
+</h5> -->
+<section class="text-white-50 my-5">
+  <h2>Top Free  {{genre}} Games for PC and Browser In 2023!</h2>
+  <p>163 free-to-play {{genre}} games found in our games list!</p>
+  <div class="row">
+    <div class="p-3 col-lg-4" *ngFor="let g of gamesData|slice:0:3">
+      <div class="position-relative my-2 bigger">
+        <a>
+          <img
+            [src]="g.thumbnail"
+            class="w-100 rounded"
+            alt=""
+            srcset=""
+          />
+          <button
+            class="m-4 btn btn-sm btn-primary position-absolute end-0 bottom-0"
+          >
+            Free
+          </button>
+        </a>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <ul class="row justify-content-between">
+    <li class="col-lg-3">
+      Platform:
+      <select class="form-select-sm ms-2 d-inline w-50 text-dark" aria-label="Platform" [(ngModel)]="platform" (change)="filterGames()">
+        <option value="">All</option>
+        <option value="pc">PC</option>
+        <option value="browser">Browser</option>
+      </select>
+    </li>
+    <li class="col-lg-3">
+      Genre/Tag:
+      <select class="form-select-sm ms-2 d-inline w-50 text-dark" aria-label="Genre" [(ngModel)]="genre" (change)="filterGames()">
+        <option  value="">All</option>
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+      </select>
+    </li>
+    <li class="col-lg-3">
+      Sort By:
+      <select class="form-select-sm ms-2 d-inline w-50 text-dark" aria-label="Sort By" [(ngModel)]="sortType" (change)="filterGames()">
+        <option value="popularity" selected>Popularity</option>
+        <option value="alphabetical">Alphabetical</option>
+        <option value="relevance">Relevance</option>
+        <option value="release-date">Release Date</option>
+      </select>
+    </li>
+    <li class="col-lg-3">
+      <i class="fa-sharp fa-solid fa-filter pe-2"></i>
+      Advanced Filters
+    </li>
+  </ul>
+  <hr />
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-12 p-2" *ngFor="let g of gamesData">
+      <a class="card bigger sec-bg-color text-muted" [routerLink]="['/details', g.id]">
+        <img
+          [src]="g.thumbnail"
+          class="card-img-top w-100"
+          alt="..."
+        />
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title">{{g.title}}</h5>
+            <button class="btn btn-sm btn-primary">Free</button>
+          </div>
+          <p>{{g.short_description|slice:0:60}}...</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <span><i class="fa-regular fa-square-plus"></i></span>
+            <span>
+              <span class="rounded p-1 bg-dark small-text">{{g.genre}}</span
+              ><i class="fa-brands fa-windows px-3"></i
+            ></span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,93 @@
+<nav
+  class="navbar navbar-expand-lg navbar-dark py-0 text-muted shadow-sm sticky-top"
+>
+  <div class="container d-flex align-items-baseline">
+    <a class="navbar-brand brandName" routerLink="home">
+      <img src="assets/logo-footer.png" class="w-25" alt="" />
+      FREE TO GAME</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse d-flex align-items-baseline"
+      id="navbarSupportedContent"
+    >
+      <ul *ngIf="logged" class="navbar-nav me-auto mb-lg-0">
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Free Games
+          </a>
+          <ul class="dropdown-menu" data-bs-popper="none">
+            <li *ngFor="let genre of pcGames">
+              <a class="dropdown-item" [routerLink]="['/category', genre.toLowerCase().replace(' ', '-')]">{{ genre }}</a>            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Browser Games
+          </a>
+          <ul class="dropdown-menu" data-bs-popper="none">
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/category', genre.toLowerCase().replace(' ', '-')]"
+                *ngFor="let genre of browserGames"
+                >{{ genre }}</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="offers">Special Offers</a>
+        </li>
+      </ul>
+      <ul
+        class="ms-auto w-25 d-flex justify-content-between align-items-baseline"
+      >
+       <a routerLink="search" class="text-muted"><i class="fa-solid px-1 fa-magnifying-glass"></i></a> 
+        <i class="fa-solid px-1 fa-gift"></i>
+        <i class="fa-solid px-1 fa-book"></i>
+        <div *ngIf="!logged">
+          <a routerLink="" class="text-muted pe-3">Login</a>
+          <button class="btn btn-outline-primary" routerLink="register">
+            join free
+          </button>
+        </div>
+        <div *ngIf="logged">
+          <a class="btn btn-outline-secondary mx-3" (click)="logOut()">
+            Logout</a
+          >
+          <a routerLink="profile">
+            <img
+              src="assets/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png"
+              class="rounded-circle w-25 img-thumbnail"
+              alt=""
+              srcset=""
+            />
+          </a>
+        </div>
+      </ul>
+    </div>
+  </div>
+</nav>
